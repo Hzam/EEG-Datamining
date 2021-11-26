@@ -94,10 +94,10 @@ class EarlyStoppingAtMinLoss(keras.callbacks.Callback):
 def lr_schedule(epoch, lr):
     """Helper function to retrieve the scheduled learning rate based on epoch."""
     if epoch == 0:
-        return 1e-4
+        return 0.001
     if epoch < 0 or epoch > 1000:
         return lr
-    if epoch % 200 == 0:
+    if epoch % 2000 == 0:
         return lr * 0.5
     return lr
 

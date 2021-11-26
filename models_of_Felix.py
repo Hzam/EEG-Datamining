@@ -2,13 +2,32 @@ from tensorflow import keras
 from tensorflow.keras import layers, utils, backend
 
 
-class ACRNN:
+class ACRNN_4D:
 
     def __init__(self, input_shape, class_num):
         self.input_shape = input_shape
         self.class_num = class_num
+    def build_model_withoutAttn(self):
+        inputs = keras.Input(self.input_shape, name='InputLayer')
 
-    def build_model(self):
+        # # CNN model
+        cnn_model_out = self.CNN_model(inputs)(inputs)
+
+        # RNN model
+        rnn_model_out = self.RNN_model(cnn_model_out)(cnn_model_out)
+
+        # softmax layer
+        # classification_in = Flatten()(self_attention_model_out)
+        classification_in = layers.Dense(16, activation='relu')(rnn_model_out)
+        outputs = layers.Dense(self.class_num, activation='softmax', name='classification_Layer')(classification_in)
+
+        # build
+        model = keras.Model(inputs=inputs, outputs=outputs)
+        model.summary()
+        utils.plot_model(model=model, to_file='./model.png', show_shapes=True)
+        return model
+
+    def build_model_withAttention(self):
         inputs = keras.Input(self.input_shape, name='InputLayer')
 
         # channel attention model
@@ -135,7 +154,7 @@ class ACRNN:
         inputs = layers.Input(shape=input_feature.shape[1:], name='RNN_InputLayer')
         x = layers.LSTM(64, return_sequences=True)(inputs)
         #x = layers.BatchNormalization(axis=-1)(x)
-        x = layers.LSTM(64, return_sequences=True)(x)
+        x = layers.LSTM(64, return_sequences=False)(x)
         #x = layers.BatchNormalization(axis=-1)(x)
 
         model = keras.Model(inputs=inputs, outputs=x, name='RNN_model')
