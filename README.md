@@ -54,15 +54,16 @@ You could find more details in [preprocessedPipeline.py](https://github.com/Feli
 
 # How to do feature extraction?
 <div align=center>
-  <img src="https://github.com/FelixLin99/EEG-Datamining/raw/main/pic/illustration/3.jpg" height=300>
+  <img src="https://github.com/FelixLin99/EEG-Datamining/raw/main/pic/illustration/3.jpg" height=250>
     </div>
 
 # About our experiment paradigm
 <div align=center>
-  <img src="https://github.com/FelixLin99/EEG-Datamining/raw/main/pic/illustration/4.jpg" height=300>
+  <img src="https://github.com/FelixLin99/EEG-Datamining/raw/main/pic/illustration/4.jpg" height=250>
     </div>
 
-  
+Interested in our image generation program? Click [here](https://github.com/FelixLin99/ImgInGrid)
+<br><br>
 
 
 
