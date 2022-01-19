@@ -7,7 +7,7 @@
 
 <p align="center">
     <img src="https://github.com/FelixLin99/EEG-Datamining/raw/main/pic/illustration/1.jpg" 
-         width="80%">
+         width="81%">
 </p>
 
 <p align="center">"<i> Get to know more about brain signal! </i>"</p>
