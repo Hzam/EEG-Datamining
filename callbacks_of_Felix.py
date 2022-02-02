@@ -47,7 +47,7 @@ class LossHistory(keras.callbacks.Callback):
         plt.yticks(fontsize=15)
         plt.legend(loc="upper right", fontsize=15)
         plt.show()
-
+# 嘿哈
 
 class EarlyStoppingAtMinLoss(keras.callbacks.Callback):
     """Stop training when the loss is at its min, i.e. the loss stops decreasing.
